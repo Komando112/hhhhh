@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "name": "عـبـدالله الاسـعـد",
+    "leagues": 13,
+    "cups": 10,
+    "tournaments": 8
+  },
+  {
+    "id": 2,
+    "name": "أبـو فـࢪيـده",
+    "leagues": 9,
+    "cups": 7,
+    "tournaments": 8
+  },
+  {
+    "id": 3,
+    "name": "عـمـࢪ حـسـن",
+    "leagues": 7,
+    "cups": 6,
+    "tournaments": 5
+  },
+  {
+    "id": 4,
+    "name": "أبـو حـنـيـن",
+    "leagues": 4,
+    "cups": 7,
+    "tournaments": 6
+  },
+  {
+    "id": 5,
+    "name": "اسـامـه",
+    "leagues": 2,
+    "cups": 2,
+    "tournaments": 5
+  },
+  {
+    "id": 6,
+    "name": "مـحـمـود الاسـعـد",
+    "leagues": 3,
+    "cups": 1,
+    "tournaments": 5
+  },
+  {
+    "id": 7,
+    "name": "أحـمـد مـودي",
+    "leagues": 0,
+    "cups": 2,
+    "tournaments": 5
+  },
+  {
+    "id": 8,
+    "name": "مـحـمـد سـلـيـمـان",
+    "leagues": 2,
+    "cups": 3,
+    "tournaments": 2
+  },
+  {
+    "id": 9,
+    "name": "آمـيـن الـعـتـࢪبـي",
+    "leagues": 1,
+    "cups": 0,
+    "tournaments": 3
+  },
+  {
+    "id": 10,
+    "name": "عـبـدالـࢪحـمـن بـوده",
+    "leagues": 0,
+    "cups": 0,
+    "tournaments": 2
+  }
+]

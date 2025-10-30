@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>قرعة الأسماء والأندية - Game Legends</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="gamelegends/style.css" />
+  <link rel="stylesheet" href="draw/draw.css" />
+  <link rel="icon" type="image/jpeg" href="assets/9.jpg" />
+</head>
+<body>
+  <header class="custom-header">
+    <nav>
+      <h1>Game Legends</h1>
+      <button class="theme-toggle" id="themeToggle" aria-label="تبديل المظهر">
+        <i class="fas fa-moon"></i>
+        <span class="theme-text">الوضع اليلي</span>
+      </button>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <div class="hero-content">
+      <div class="logo-container">
+        <img src="assets/9.jpg" alt="Game Legends Logo" class="logo" />
+      </div>
+      <h1>قـࢪعـة الأسـمـاء والأنـديـة</h1>
+      <p class="tagline">تـعـيـيـن أنـديـة عـشـوائـيـة لـلـمـشـاركـيـن - الـقـࢪعـة مـحـفـوظـة لـمـدة 24 سـاعـة</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="quick-actions">
+      <a href="index.html" class="action-btn secondary">
+        <i class="fas fa-arrow-right"></i> العودة للصفحة الرئيسية
+      </a>
+    </div>
+
+    <!-- Saved Draws List -->
+    <div class="card" id="savedDrawsCard" style="display:none;">
+      <h2><i class="fas fa-history"></i> الـقـࢪعـات الـمـحـفـوظـة</h2>
+      <div class="card-content">
+        <div id="savedDrawsList">
+          <!-- Saved draws will be loaded here -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Control Panel -->
+    <div class="card">
+      <h2><i class="fas fa-sliders-h"></i> لوحة التحكم</h2>
+      <div class="card-content">
+        <div class="control-panel">
+          <button id="drawBtn" class="action-btn primary draw-btn" disabled>
+            <i class="fas fa-random"></i> إجراء القرعة
+          </button>
+          <button id="resetBtn" class="action-btn secondary">
+            <i class="fas fa-redo"></i> إعادة تعيين
+          </button>
+          <button id="clearAllBtn" class="action-btn danger">
+            <i class="fas fa-trash"></i> مسح الكل
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Draw Title -->
+    <div class="card input-section">
+      <h2><i class="fas fa-heading"></i> عـنـوان الـقـࢪعـة</h2>
+      <div class="card-content">
+        <div class="input-group">
+          <input type="text" id="drawTitleInput" placeholder="أدخل عنوان القرعة (مثال: قرعة دوري الأبطال)..." class="text-input" value="قرعة جديدة">
+          <button id="saveTitleBtn" class="action-btn primary small">
+            <i class="fas fa-save"></i> حفظ
+          </button>
+        </div>
+        <div class="current-title" id="currentTitleDisplay"></div>
+      </div>
+    </div>
+
+    <!-- Input Sections -->
+    <div class="input-sections">
+      <!-- Names Section -->
+      <div class="card input-section">
+        <h2><i class="fas fa-users"></i> الأسـمـاء</h2>
+        <div class="card-content">
+          <div class="input-group">
+            <input type="text" id="nameInput" placeholder="أدخل اسم المدرب..." class="text-input">
+            <button id="addNameBtn" class="action-btn primary small">
+              <i class="fas fa-plus"></i> إضافة
+            </button>
+          </div>
+          <div class="items-list" id="namesList">
+            <div class="empty-state">
+              <i class="fas fa-users"></i>
+              <p>لا توجد أسماء مضافة</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Clubs Section -->
+      <div class="card input-section">
+        <h2><i class="fas fa-trophy"></i> الأنـديـة</h2>
+        <div class="card-content">
+          <div class="input-group">
+            <input type="text" id="clubInput" placeholder="أدخل اسم النادي..." class="text-input">
+            <button id="addClubBtn" class="action-btn primary small">
+              <i class="fas fa-plus"></i> إضافة
+            </button>
+          </div>
+          <div class="items-list" id="clubsList">
+            <div class="empty-state">
+              <i class="fas fa-trophy"></i>
+              <p>لا توجد أندية مضافة</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Results Section -->
+    <div class="card results-section" id="resultsSection" style="display: none;">
+      <h2><i class="fas fa-list-alt"></i> نتـائـج الـقـࢪعـة</h2>
+      <div class="card-content">
+        <div class="results-grid" id="resultsGrid">
+          <!-- Results will be displayed here -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Status Message -->
+    <div class="status-message" id="statusMessage"></div>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <div class="social-links">
+        <a href="https://wa.me/message/IIIHPVUIHY74H1" aria-label="واتساب" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="https://t.me/I_X_X_T" aria-label="تيليجرام" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-telegram"></i>
+        </a>
+        <a href="https://www.instagram.com/i_x_x_t?igsh=NnoydThrcXBuMmRh" aria-label="إنستغرام" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+    </div>
+    <p class="copyright">&copy; جـمـيـع الـحـقـوق مـحـفـوظـه لـدى حـمـزه 2024 - 2025</p>
+  </footer>
+
+  <script src="gamelegends/settings.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/draw-enhanced.js"></script>
+</body>
+</html>
