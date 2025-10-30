@@ -1,0 +1,781 @@
+.session-info {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.session-info .action-btn {
+  margin-top: 0.5rem;
+}
+
+.session-badge {
+  background: var(--accent);
+  color: white;
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  margin-right: auto;
+}
+
+.time-remaining {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.time-remaining.active {
+  background: rgba(16, 185, 129, 0.2);
+  color: var(--accent);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.time-remaining.expired {
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+/* =============================
+   🎮 أنماط مشروع القرعة
+   ============================= */
+
+.input-sections {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+/* =============================
+   🎮 أنماط عنوان القرعة
+   ============================= */
+
+.title-display {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), transparent);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-top: 1rem;
+  position: relative;
+}
+
+.title-display i {
+  color: var(--primary);
+  font-size: 1.2rem;
+}
+
+.title-text {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.session-badge {
+  background: var(--accent);
+  color: white;
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  margin-right: auto;
+}
+
+/* أنماط عنوان القرعة في النتائج */
+.draw-title-header {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), transparent);
+  border: 1px solid var(--secondary);
+  border-radius: var(--radius);
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.draw-title-header h3 {
+  font-size: 1.8rem;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.draw-subtitle {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.session-info {
+  margin-top: 1rem;
+}
+
+.time-remaining {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.time-remaining.active {
+  background: rgba(16, 185, 129, 0.2);
+  color: var(--accent);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.time-remaining.expired {
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+/* تحسينات للشاشات الصغيرة */
+@media (max-width: 768px) {
+  .draw-title-header {
+    padding: 1.5rem;
+  }
+  
+  .draw-title-header h3 {
+    font-size: 1.5rem;
+  }
+  
+  .draw-subtitle {
+    font-size: 1rem;
+  }
+  
+  .title-display {
+    padding: 0.8rem;
+  }
+  
+  .title-text {
+    font-size: 1rem;
+  }
+}
+
+/* تأثيرات للعنوان */
+.title-display {
+  animation: fadeIn 0.5s ease;
+}
+
+.draw-title-header {
+  animation: slideInDown 0.6s ease;
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* تحسينات لواجهة العنوان */
+.input-section:first-child {
+  margin-bottom: 1.5rem;
+}
+
+.input-section:first-child .card-content {
+  position: relative;
+}
+
+/* زر حفظ العنوان */
+#saveTitleBtn {
+  white-space: nowrap;
+}
+
+/* تحسينات للوضع النهاري */
+[data-theme="light"] .title-display {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), transparent);
+}
+
+[data-theme="light"] .draw-title-header {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.05), transparent);
+}
+
+/* =============================
+   🎮 أنماط نافذة كلمة المرور
+   ============================= */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.modal-header h3 {
+  margin: 0;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: var(--transition);
+}
+
+.modal-close:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+}
+
+.modal-body {
+  padding: 1.5rem;
+}
+
+.modal-body p {
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.modal-input {
+  width: 100%;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.modal-actions .action-btn {
+  min-width: 100px;
+}
+
+/* تحسينات للشاشات الصغيرة */
+@media (max-width: 480px) {
+  .modal-content {
+    width: 95%;
+    margin: 1rem;
+  }
+  
+  .modal-header {
+    padding: 1rem;
+  }
+  
+  .modal-body {
+    padding: 1rem;
+  }
+  
+  .modal-actions {
+    flex-direction: column;
+  }
+  
+  .modal-actions .action-btn {
+    width: 100%;
+  }
+}
+
+/* تأثيرات إضافية للأمان */
+.password-strength {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.password-weak {
+  color: #ef4444;
+}
+
+.password-medium {
+  color: #f59e0b;
+}
+
+.password-strong {
+  color: #10b981;
+}
+
+/* حماية إضافية للنماذج */
+.modal-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* تحسينات الوصول */
+.modal-overlay:focus {
+  outline: none;
+}
+
+.modal-content:focus {
+  outline: none;
+}
+
+/* =============================
+   🎮 أنماط عنوان القرعة في النتائج
+   ============================= */
+
+.draw-title-header {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(59, 130, 246, 0.1));
+  border: 2px solid var(--secondary);
+  border-radius: var(--radius);
+  margin-bottom: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.draw-title-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+}
+
+.draw-title-header h3 {
+  font-size: 2rem;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.draw-subtitle {
+  color: var(--secondary);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* تحديث عنوان قسم النتائج */
+.results-section h2 {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--border);
+}
+
+/* تحسينات للشاشات الصغيرة */
+@media (max-width: 768px) {
+  .draw-title-header {
+    padding: 1.5rem;
+  }
+  
+  .draw-title-header h3 {
+    font-size: 1.6rem;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  
+  .draw-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .results-section h2 {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .draw-title-header h3 {
+    font-size: 1.4rem;
+  }
+  
+  .draw-subtitle {
+    font-size: 1rem;
+  }
+  
+  .results-section h2 {
+    font-size: 1.3rem;
+  }
+}
+
+/* تأثيرات للعنوان */
+.draw-title-header {
+  animation: slideInDown 0.6s ease, glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 10px rgba(139, 92, 246, 0.3);
+  }
+  to {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* تحسينات للوضع النهاري */
+[data-theme="light"] .draw-title-header {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.08), rgba(59, 130, 246, 0.05));
+  border: 2px solid var(--primary);
+}
+
+[data-theme="light"] .draw-title-header::before {
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+}
+
+[data-theme="light"] .draw-title-header h3 {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 768px) {
+  .input-sections {
+    grid-template-columns: 1fr;
+  }
+}
+
+.input-section {
+  height: fit-content;
+}
+
+.control-panel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.draw-btn {
+  font-size: 1.1rem;
+  padding: 0.8rem 2rem;
+}
+
+.action-btn.danger {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+.action-btn.danger:hover {
+  box-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
+  transform: translateY(-3px);
+}
+
+.action-btn.small {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+
+.input-group {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.text-input {
+  flex: 1;
+  padding: 0.7rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.text-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 0.5rem;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="light"] .items-list {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.7rem 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  transition: var(--transition);
+  animation: fadeIn 0.3s ease;
+}
+
+.item:hover {
+  background: var(--bg-card-hover);
+  transform: translateX(-5px);
+}
+
+.item-name {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.delete-btn {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #ef4444;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 0.8rem;
+}
+
+.delete-btn:hover {
+  background: rgba(239, 68, 68, 0.2);
+  transform: scale(1.1);
+}
+
+.results-section {
+  margin-top: 2rem;
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.result-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  text-align: center;
+  transition: var(--transition);
+  animation: slideInUp 0.5s ease;
+}
+
+.result-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px var(--shadow-hover);
+  background: var(--bg-card-hover);
+}
+
+.result-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.result-club {
+  font-size: 1.1rem;
+  color: var(--secondary);
+  font-weight: 600;
+}
+
+.result-icon {
+  font-size: 2rem;
+  color: var(--accent);
+  margin-bottom: 1rem;
+  animation: bounce 1s infinite;
+}
+
+.status-message {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 1rem 2rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  backdrop-filter: blur(12px);
+}
+
+.status-message.show {
+  opacity: 1;
+}
+
+.status-message.success {
+  background: rgba(16, 185, 129, 0.9);
+  color: white;
+  border: 1px solid rgba(16, 185, 129, 0.5);
+}
+
+.status-message.error {
+  background: rgba(239, 68, 68, 0.9);
+  color: white;
+  border: 1px solid rgba(239, 68, 68, 0.5);
+}
+
+.status-message.warning {
+  background: rgba(245, 158, 11, 0.9);
+  color: white;
+  border: 1px solid rgba(245, 158, 11, 0.5);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-muted);
+}
+
+.empty-state i {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+/* أنيميشن للنتائج */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes drawAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.drawing {
+  animation: drawAnimation 0.5s ease infinite;
+}
+
+/* تأثيرات خاصة للقرعة */
+.shuffle-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.shuffle-effect::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(59, 130, 246, 0.1),
+    transparent
+  );
+  transform: rotate(45deg);
+  animation: shine 2s infinite;
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+}
